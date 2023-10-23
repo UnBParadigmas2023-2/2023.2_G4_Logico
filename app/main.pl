@@ -46,8 +46,17 @@ consultar_filmes_recomendados :-
     ;   AnoMinimo = 0
     ),
 
+    % Preferência de ano maximo
+    nl,perguntar_preferencia(OpcaoAnoMaximo,anoMaximo),
+    nl,
+    (
+        OpcaoAnoMaximo == 'sim'
+    ->  anoMaximo(AnoMaximo)
+    ;   AnoMaximo = 2023
+    ),
+
     nl,write("Filmes para você: "),
-    nl,findall(X,(filme(X,Genero,Ano,Nota,_), Ano >= AnoMinimo, Nota >= AvaliacaoMinima), Lista),
+    nl,findall(X,(filme(X,Genero,Ano,Nota,_), Ano >= AnoMinimo, Ano =< AnoMaximo, Nota >= AvaliacaoMinima), Lista),
     write(Lista).
 
 % Loop para forçar o usuário a digitar 'sim' ou 'nao'
@@ -82,6 +91,12 @@ avaliacao(AvaliacaoMinima) :-
 anoMinimo(AnoMinimo) :-
     write("Digite o ano mínimo desejado: "),
     nl,read(AnoMinimo).
+    % Verificar se valor inserido é válido
+
+% Usuário digitar o ano maximo desejado
+anoMaximo(AnoMaximo) :-
+    write("Digite o ano máximo desejado: "),
+    nl,read(AnoMaximo).
     % Verificar se valor inserido é válido
 
 sair :- 
