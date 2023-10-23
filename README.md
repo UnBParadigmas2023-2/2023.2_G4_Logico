@@ -84,5 +84,5 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 Desenvolver um sistema de recomendações de filmes de Halloween em Prolog foi uma jornada repleta de descobertas e aprendizados. A natureza declarativa da linguagem realçou a essência de pensar em termos de "o quê" ao invés de "como", o que estimulou uma abordagem mais lógica e introspectiva para o desenvolvimento. Além disso, o mergulho em sua biblioteca padrão e a manipulação de bases de dados em Prolog foram cruciais para o sucesso do projeto. O constante desafio de definir regras claras e eficientes para as recomendações demonstrou a relevância de uma programação lógica bem fundamentada. Em resumo, esse projeto não apenas aprofundou nosso conhecimento em Prolog, mas também fortaleceu nossa capacidade analítica, ilustrando a importância de pensar logicamente em cenários de decisão e recomendação.
 
 ## Fontes
-- http://blog.gbacon.com/2011/01/checkers-game-over-in-haskell.html
-- https://github.com/Syk123/Checkers-Haskell
+- https://www.metacritic.com
+
