@@ -37,8 +37,17 @@ consultar_filmes_recomendados :-
     ;   AvaliacaoMinima = 0
     ),
 
+    % Preferência de ano minimo
+    nl,perguntar_preferencia(OpcaoAnoMinimo,anoMinimo),
+    nl,
+    (
+        OpcaoAnoMinimo == 'sim'
+    ->  anoMinimo(AnoMinimo)
+    ;   AnoMinimo = 0
+    ),
+
     nl,write("Filmes para você: "),
-    nl,findall(X,(filme(X,Genero,_,Nota,_), Nota >= AvaliacaoMinima), Lista),
+    nl,findall(X,(filme(X,Genero,Ano,Nota,_), Ano >= AnoMinimo, Nota >= AvaliacaoMinima), Lista),
     write(Lista).
 
 % Loop para forçar o usuário a digitar 'sim' ou 'nao'
@@ -67,6 +76,12 @@ genero(Genero) :-
 avaliacao(AvaliacaoMinima) :-
     write("Digite a avaliação mínima desejada (0-100): "),
     nl,read(AvaliacaoMinima).
+    % Verificar se valor inserido é válido
+
+% Usuário digitar o ano minimo desejado
+anoMinimo(AnoMinimo) :-
+    write("Digite o ano mínimo desejado: "),
+    nl,read(AnoMinimo).
     % Verificar se valor inserido é válido
 
 sair :- 
