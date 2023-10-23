@@ -55,8 +55,17 @@ consultar_filmes_recomendados :-
     ;   AnoMaximo = 2023
     ),
 
+    % Preferência de diretor
+    perguntar_preferencia(OpcaoDiretor,diretor),
+    nl,
+    (
+        OpcaoDiretor == 'sim'
+    ->  diretor(Diretor)
+    ;   Diretor = _
+    ),
+
     nl,write("Filmes para você: "),
-    nl,findall(X,(filme(X,Genero,Ano,Nota,_), Ano >= AnoMinimo, Ano =< AnoMaximo, Nota >= AvaliacaoMinima), Lista),
+    nl,findall(X,(filme(X,Genero,Ano,Nota,Diretor), Ano >= AnoMinimo, Ano =< AnoMaximo, Nota >= AvaliacaoMinima), Lista),
     write(Lista).
 
 % Loop para forçar o usuário a digitar 'sim' ou 'nao'
@@ -97,6 +106,13 @@ anoMinimo(AnoMinimo) :-
 anoMaximo(AnoMaximo) :-
     write("Digite o ano máximo desejado: "),
     nl,read(AnoMaximo).
+    % Verificar se valor inserido é válido
+
+% Mostrar todos os diretores possíveis e usuário digitar o diretor desejado
+diretor(Diretor) :-
+    % Listar todos os diretores
+    write("Digite o diretor desejado: "),
+    nl,read(Diretor).
     % Verificar se valor inserido é válido
 
 sair :- 
