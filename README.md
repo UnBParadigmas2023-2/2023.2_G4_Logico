@@ -1,51 +1,60 @@
-# RepositorioTemplate
-Esse repositório é para ser utilizado pelos grupos como um template inicial, da home page do Projeto.
-As seções do Template NÃO DEVEM SER OMITIDAS, sendo TODAS RELEVANTES.
-
-**!! *Atenção: Renomeie o seu repositório para (Ano.Semestre)_(Grupo)_(Paradigma)_(NomeDoProjeto)*. !!** 
-
-Paradigmas:
- - Funcional
- - Logico
- - SMA
-
-**!! *Não coloque os nomes dos alunos no título do repositório*. !!**
-
-**!! *Exemplo de título correto: 2023.2_G1_Logico_ProjetoRoteirosAereos*. !!**
- 
- (Apague esses comentários)
-
-# NomeDoProjeto
+# HalloweenCritic Prolog
 
 **Disciplina**: FGA0210 - PARADIGMAS DE PROGRAMAÇÃO - T01 <br>
-**Nro do Grupo (de acordo com a Planilha de Divisão dos Grupos)**: XX<br>
-**Paradigma**: XXXXXXXXXX<br>
+**Nro do Grupo (de acordo com a Planilha de Divisão dos Grupos)**: 04<br>
+**Paradigma**: Lógico <br>
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 17/0085023 |  Carla Rocha Cangussú |
+| 20/0028472 |  Vinícius Assumpcao de Araújo |
+| 18/0063162 |  Daniel Primo de Melo |
+| 20/2029012 |  Josué Teixeira Santana |
+| 20/0020650 |  João Pedro de Camargo Vaz |
+| 18/0124099 |  Juliana Pereira Valle Gonçalves |
+| 20/0018248 |  Gabriel Roger Amorim da Cruz |
+| 19/0015721 |  Júlio César Martins França |
 
 ## Sobre 
-Descreva o seu projeto em linhas gerais. 
-Use referências, links, que permitam conhecer um pouco mais sobre o projeto.
-Capriche nessa seção, pois ela é a primeira a ser lida pelos interessados no projeto.
+Este é um projeto de implementação do jogo de um sistema de recomendação baseado no metacritic, com a temática de Halloween em prolog.    
+
+### Funcionalidades Principais
+1. Base de Dados e Entrada de Informações:
+ - Estrutura para armazenar informações dos filmes (título, gênero, ano, pontuação, etc.).
+ - Predicado para carregar dados da base fictícia ou de um arquivo externo.
+ - Predicados para coletar preferências do usuário (gêneros, temas, etc.).
+  
+2. Regras de Recomendação:
+
+- Regras para recomendar filmes baseados em critérios do usuário (gênero, ano, pontuação, etc.).
+- Lógica para ordenar recomendações (por pontuação, relevância, etc.).
+
+3. Interação com o Usuário:
+
+- Interface básica de interação .
+- Predicados para receber consultas e preferências do usuário.
+- Método para exibir recomendações ao usuário.
+
+4. Personalização e Detalhes dos Filmes:
+   
+- Mostrar informações detalhadas dos filmes (sinopse, elenco, diretor).
+- Funcionalidade para marcar filmes ("assistidos", "quer assistir", "favoritos").
+- Registro de ações e escolhas do usuário (histórico).
 
 ## Screenshots
-Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
+
+
+
 
 ## Instalação 
-**Linguagens**: xxxxxx<br>
-**Tecnologias**: xxxxxx<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
-Gifs animados e outras ilustrações são bem-vindos!
+**Linguagens**: Prolog<br>
+**Tecnologias**: <br>
 
 ## Uso 
-Explique como usar seu projeto.
-Procure ilustrar em passos, com apoio de telas do software, seja com base na interface gráfica, seja com base no terminal.
-Nessa seção, deve-se revelar de forma clara sobre o funcionamento do software.
+
+```
+Após a execução destes comandos, você será capaz de visualizar a aplicação em execução no terminal. 
 
 ## Vídeo
 Adicione 1 ou mais vídeos com a execução do projeto.
@@ -54,22 +63,26 @@ Procure:
 (ii) Mostrar passo a passo o código, explicando-o, e deixando claro o que é de terceiros, e o que é contribuição real da equipe;
 (iii) Apresentar particularidades do Paradigma, da Linguagem, e das Tecnologias, e
 (iV) Apresentar lições aprendidas, contribuições, pendências, e ideias para trabalhos futuros.
-OBS: TODOS DEVEM PARTICIPAR, CONFERINDO PONTOS DE VISTA.
-TEMPO: +/- 15min
 
+TEMPO: +/- 15min
+ [LINK PARA O VÍDEO DE APRESENTAÇÃO]()
 ## Participações
 Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 |Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) |
 | -- | -- | -- |
-| Fulano  |  Programação dos Fatos da Base de Conhecimento Lógica | Boa |
+| Vinicius Assumpção  |  Criação do esqueleto base que foi utilizado para a implementação do projeto,e revisões posteriores  | Excelente |
+| João Pedro de Camargo Vaz  |  Criação do esqueleto base que foi utilizado para a implementação do projeto,e revisões posteriores | Excelente |
+| Gabriel Roger Amorim da Cruz | Criação do esqueleto base que foi utilizado para a implementação do projeto,e revisões posteriores | Excelente | 
+| Josué Teixeira Santana | | Excelente |
+| Carla Rocha Cangussú | | Excelente |
+| Juliana Pereira Valle Gonçalves | | Excelente |
+| Daniel Primo de Melo  | | Excelente |
+| Júlio César Martins frança |  | Excelente |
 
 ## Outros 
-Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não esqueça, entretanto, de informar sobre:
-(i) Lições Aprendidas;
-(ii) Percepções;
-(iii) Contribuições e Fragilidades, e
-(iV) Trabalhos Futuros.
+
+Desenvolver um sistema de recomendações de filmes de Halloween em Prolog foi uma jornada repleta de descobertas e aprendizados. A natureza declarativa da linguagem realçou a essência de pensar em termos de "o quê" ao invés de "como", o que estimulou uma abordagem mais lógica e introspectiva para o desenvolvimento. Além disso, o mergulho em sua biblioteca padrão e a manipulação de bases de dados em Prolog foram cruciais para o sucesso do projeto. O constante desafio de definir regras claras e eficientes para as recomendações demonstrou a relevância de uma programação lógica bem fundamentada. Em resumo, esse projeto não apenas aprofundou nosso conhecimento em Prolog, mas também fortaleceu nossa capacidade analítica, ilustrando a importância de pensar logicamente em cenários de decisão e recomendação.
 
 ## Fontes
-Referencie, adequadamente, as referências utilizadas.
-Indique ainda sobre fontes de leitura complementares.
+- http://blog.gbacon.com/2011/01/checkers-game-over-in-haskell.html
+- https://github.com/Syk123/Checkers-Haskell
