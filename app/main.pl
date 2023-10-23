@@ -64,8 +64,17 @@ consultar_filmes_recomendados :-
     ;   Diretor = _
     ),
 
+    % Preferência de estúdio
+    perguntar_preferencia(OpcaoEstudio,estudio),
+    nl,
+    (
+        OpcaoEstudio == 'sim'
+    ->  estudio(Estudio)
+    ;   Estudio = _
+    ),
+
     nl,write("Filmes para você: "),
-    nl,findall(X,(filme(X,Genero,Ano,Nota,Diretor), Ano >= AnoMinimo, Ano =< AnoMaximo, Nota >= AvaliacaoMinima), Lista),
+    nl,findall(X,(filme(X,Genero,Ano,Nota,Diretor,Estudio), Ano >= AnoMinimo, Ano =< AnoMaximo, Nota >= AvaliacaoMinima), Lista),
     write(Lista).
 
 % Loop para forçar o usuário a digitar 'sim' ou 'nao'
@@ -115,6 +124,13 @@ diretor(Diretor) :-
     nl,read(Diretor).
     % Verificar se valor inserido é válido
 
+% Mostrar todos os estúdios possíveis e usuário digitar o estúdio desejado
+estudio(Estudio) :-
+    % Listar todos os estúdios
+    write("Digite o estúdio desejado: "),
+    nl,read(Estudio).
+    % Verificar se valor inserido é válido
+
 sair :- 
     nl,write("Obrigado por usar nosso recomendador!").
 
@@ -123,8 +139,6 @@ opcaoInvalida :-
     nl,menu_principal.
 
 main :- menu_principal.
-
-
 
 % Explicação das variáveis:
 
