@@ -1,10 +1,5 @@
-
-% Fatos
-filme('Gato de Botas 2', 'animacao', 2022).
-filme('Pantera Negra', 'acao', 2018).
-filme('Vingadores Ultimato', 'acao', 2019).
-filme('Se Beber Nao Case', 'comedia', 2009).
-filme('Barbie', 'comedia', 2023).
+% consult para recuperar base de conhecimento presente no arquivo baseConhecimento
+:- consult('baseConhecimento.pl').
 
 % Exibição do menu
 menu_principal :-
@@ -23,6 +18,8 @@ menu_principal :-
 consultar_filmes_recomendados :-
     write("Insira suas preferências!"),
     nl,
+
+    % Preferência de gênero
     perguntar_preferencia(OpcaoGenero,genero),
     nl,
     (
@@ -30,13 +27,18 @@ consultar_filmes_recomendados :-
     ->  genero(Genero)
     ;   Genero = _
     ),
-    % nl,write("Gênero escolhido: "),
-    % write(Genero),nl,
 
-    % Adicionar mais opções de preferência...
+    % Preferência de avaliacao minima
+    nl,perguntar_preferencia(OpcaoAvaliacao,avaliacao),
+    nl,
+    (
+        OpcaoAvaliacao == 'sim'
+    ->  avaliacao(AvaliacaoMinima)
+    ;   AvaliacaoMinima = 0
+    ),
 
     nl,write("Filmes para você: "),
-    nl,findall(X,filme(X,Genero,_),Lista),
+    nl,findall(X,(filme(X,Genero,_,Nota,_), Nota >= AvaliacaoMinima), Lista),
     write(Lista).
 
 % Loop para forçar o usuário a digitar 'sim' ou 'nao'
@@ -54,11 +56,17 @@ perguntar_preferencia(Opcao,Tema) :-
         perguntar_preferencia(Opcao,Tema) % Continua perguntando até receber resposta válida
     ).
 
-% Mostrar todos os gêneros possíveis e usuário digitar qual gênero desejado
+% Mostrar todos os gêneros possíveis e usuário digitar o gênero desejado
 genero(Genero) :-
     % Listar todos os gêneros
     write("Digite o gênero desejado: "),
     nl,read(Genero).
+    % Verificar se valor inserido é válido
+
+% Usuário digitar a avaliação minima desejada
+avaliacao(AvaliacaoMinima) :-
+    write("Digite a avaliação mínima desejada (0-100): "),
+    nl,read(AvaliacaoMinima).
     % Verificar se valor inserido é válido
 
 sair :- 
