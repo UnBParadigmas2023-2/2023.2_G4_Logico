@@ -16,3 +16,5 @@ sair :-
 opcaoInvalida :-
     nl,write("Voce não digitou uma opção válida!"),
     nl,menu_principal.
+
+main :- menu_principal.
