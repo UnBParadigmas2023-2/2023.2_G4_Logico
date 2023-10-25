@@ -181,3 +181,19 @@ continuar_ou_voltar :-
     ).
 
     main :- menu_principal.
+
+% Explicação das variáveis:
+
+% OpcaoMenu irá armazenar a opção do menu escolhida pelo usuário
+% OpcaoGenero irá armazenar 'sim' ou 'nao' para preferencia por genero
+% OpcaoAvaliacao irá armazenar 'sim' ou 'nao' para preferencia por avaliacao minima
+% OpcaoAnoMinimo irá armazenar 'sim' ou 'nao' para preferencia por ano minimo
+% OpcaoAnoMaximo irá armazenar 'sim' ou 'nao' para preferencia por ano maximo
+% OpcaoDiretor irá armazenar 'sim' ou 'nao' para preferencia por diretor
+% OpcaoEstudio irá armazenar 'sim' ou 'nao' para preferencia por estudio 
+% Genero irá armazenar o genero escolhido pelo usuario. No caso de opcaoGenero armazenar 'nao', Genero receberá _
+% AvaliacaoMinima irá armazenar a avaliação minima escolhido pelo usuario. No caso de opcaoAvaliacao armazenar 'nao', AvaliacaoMinima receberá _
+% AnoMinimo irá armazenar o ano minimo desejado pelo usuario. No caso de OpcaoAnoMinimo armazenar 'nao', AnoMinimo será 0
+% AnoMaximo irá armazenar o ano maximo desejado pelo usuario. No caso de OpcaoAnoMaximo armazenar 'nao', AnoMaximo será 2023
+% Diretor irá armazenar o diretor escolhido pelo usuario. No caso de OpcaoDiretor armazenar 'nao', Diretor receberá _
+% Estudio irá armazenar o estudio escolhido pelo usuario.No caso de OpcaoEstudio armazenar 'nao', Estudio será _
