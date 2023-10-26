@@ -1,19 +1,43 @@
 % consult para recuperar base de conhecimento presente no arquivo baseConhecimento
 :- consult('baseConhecimento.pl').
+:- use_module(library(pce)).
 
 % Exibição do menu
-menu_principal :-
-    nl, write("Bem-vindo ao Recomendador de Filmes!"),
-    nl, write("1 - Consultar filmes recomendados"),
-    nl, write("2 - Sair"),
-    nl, nl, read(OpcaoMenu),
-    (
-        OpcaoMenu =:= 1
-        -> consultar_filmes_recomendados
-        ; OpcaoMenu =:= 2
-        -> sair
-        ; opcaoInvalida
-    ).
+menu_principal:-
+    new(Dialog, dialog('Metacritic')),
+    send(Dialog, size, size(620, 500)),
+    send(Dialog, background, '#ffffdf'),
+    send_list(Dialog,
+              append,
+              [
+                new(P, new(P, menu('Bem vindo!'))),
+                new(S, new(S, menu('Escolha um criterio'))),
+                button(sair, message(Dialog, destroy)),
+                button(consultar,
+                       and(message(@prolog,
+                                   consultar_filmes_recomendados,
+                                   S?selection
+                                   )))
+              ]),
+    send_list(S,
+              append,
+
+              [ 'Ano',
+                'Duração',
+                'Gênero',
+                'Classificação',
+                'Diretor',
+                'Ator',
+                'Arrecadação',
+                'Geral'
+              ]),
+    send(S, columns, 2),
+    send(S, colour('#000000')),
+    send(S, gap, size(5, 5)),
+    send(Dialog, default_button, consultar),
+    send(Dialog, open_centered).
+
+
 
 % Coletar preferências do usuário
 consultar_filmes_recomendados :-
