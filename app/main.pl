@@ -101,7 +101,7 @@ genero(Genero) :-
     nl, read(GeneroLido), 
     (
         filme(_, GeneroLido, _, _, _, _)
-        -> true
+        -> Genero = GeneroLido
         ; nl, write("Gênero inserido inválido. Escolha um dos gêneros da lista."), nl, nl,
         genero(Genero)
     ).
@@ -113,7 +113,7 @@ avaliacao(AvaliacaoMinima) :-
     nl,read(AvaliacaoMinimaLida), 
     (
         AvaliacaoMinimaLida >= Minima, AvaliacaoMinimaLida =< Maxima
-        -> true
+        -> AvaliacaoMinima = AvaliacaoMinimaLida
         ; nl, format("Avaliação inserida inválida. A avaliação deve estar entre ~w e ~w.", [Minima, Maxima]), nl, nl,
         avaliacao(AvaliacaoMinima)
     ).
@@ -125,7 +125,7 @@ anoMinimo(AnoMinimo) :-
     nl, read(AnoMinimoLido), 
     (
         AnoMinimoLido >= Minimo, AnoMinimoLido =< Maximo, integer(AnoMinimoLido)    
-        -> true
+        -> AnoMinimo = AnoMinimoLido
         ; nl, format("Ano mínimo inserido inválido. O Ano mínimo deve estar entre ~w e ~w.", [Minimo, Maximo]), nl, nl,
         anoMinimo(AnoMinimo)
     ).
@@ -137,7 +137,7 @@ anoMaximo(AnoMaximo) :-
     nl, read(AnoMaximoLido), 
     (
         AnoMaximoLido >= Minimo, AnoMaximoLido =< Maximo, integer(AnoMaximoLido)    
-        -> true
+        -> AnoMaximo = AnoMaximoLido
         ; nl, format("Ano mínimo inserido inválido. O Ano mínimo deve estar entre ~w e ~w.", [Minimo, Maximo]), nl, nl,
     anoMaximo(AnoMaximo)
     ).
@@ -150,7 +150,7 @@ diretor(Diretor) :-
     nl, read(DiretorLido), 
     (
         filme(_, _, _, _, DiretorLido, _)
-        -> true
+        -> Diretor = DiretorLido
         ; write("Diretor inserido inválido. Escolha um dos diretores da lista."),
         diretor(Diretor)
     ).
@@ -163,7 +163,7 @@ estudio(Estudio) :-
     nl, read(EstudioLido), 
     (
         filme(_, _, _, _, _, EstudioLido)
-        -> true
+        -> Estudio = EstudioLido
         ; write("Estúdio inserido inválido. Escolha um dos estúdios da lista."),
         estudio(Estudio)
     ).
