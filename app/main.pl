@@ -85,7 +85,7 @@ nl, write("║  Filmes para você: "),
 nl, findall(X, (filme(X, Genero, Ano, Nota, Diretor, Estudio), Ano >= AnoMinimo, Ano =< AnoMaximo, Nota >= AvaliacaoMinima), Lista),
 listar_filmes_numerados(Lista, 1), % Adiciona números à lista de filmes
 nl, write("║  Deseja visualizar informações de um filme recomendado? (Digite o número do filme ou 'nao')  ║"),
-nl, write("║  Caso deseje vizualizar informações sobre um filme, digite o número com aspas simples.       ║"),
+nl, write("║  Caso deseje visualizar informações sobre um filme, digite o número com aspas simples.       ║"),
 nl, write("║  Ex.: '403'.                                                                                 ║"),
 nl, read(OpcaoVisualizar),
 (
