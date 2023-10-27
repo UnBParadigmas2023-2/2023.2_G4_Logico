@@ -110,7 +110,7 @@ TEMPO: +/- 15min
 | Carla Rocha Cangussú | |  |
 | Juliana Pereira Valle Gonçalves | |  |
 | Daniel Primo de Melo  | |  |
-| Júlio César Martins frança |  |  |
+| Júlio César Martins frança | Implementação da parte de listagem das opções para o usuário e na validação dos dados de entrada | Excelente |
 
 ## Outros 
 
