@@ -107,7 +107,7 @@ TEMPO: +/- 15min
 | João Pedro de Camargo Vaz  |  Criação do esqueleto base que foi utilizado para a implementação do projeto,e revisões posteriores | Excelente |
 | Gabriel Roger Amorim da Cruz | Criação do esqueleto base que foi utilizado para a implementação do projeto, colaboração na listagem de preferências disponíveis e revisões posteriores | Excelente | 
 | Josué Teixeira Santana | |  |
-| Carla Rocha Cangussú | |  |
+| Carla Rocha Cangussú | Criação da Interface via terminal e tentativa de criar interface gráfica pelo módulo pce| Excelente |
 | Juliana Pereira Valle Gonçalves | Criação de script de extração de filmes para popular a base de dados | Excelente |
 | Daniel Primo de Melo  | Criação da interface via terminal. Tentativa de criação da interface gráfica | Excelente |
 | Júlio César Martins frança | Implementação da parte de listagem das opções para o usuário e na validação dos dados de entrada | Excelente |
