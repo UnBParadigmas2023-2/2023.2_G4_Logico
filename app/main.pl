@@ -1,47 +1,26 @@
 % consult para recuperar base de conhecimento presente no arquivo baseConhecimento
 :- consult('baseConhecimento.pl').
-:- use_module(library(pce)).
 
 % Exibição do menu
-menu_principal:-
-    new(Dialog, dialog('Metacritic')),
-    send(Dialog, size, size(620, 500)),
-    send(Dialog, background, '#ffffdf'),
-    send_list(Dialog,
-              append,
-              [
-                new(P, new(P, menu('Bem vindo!'))),
-                new(S, new(S, menu('Escolha um criterio'))),
-                button(sair, message(Dialog, destroy)),
-                button(consultar,
-                       and(message(@prolog,
-                                   consultar_filmes_recomendados,
-                                   S?selection
-                                   )))
-              ]),
-    send_list(S,
-              append,
-
-              [ 'Ano',
-                'Duração',
-                'Gênero',
-                'Classificação',
-                'Diretor',
-                'Ator',
-                'Arrecadação',
-                'Geral'
-              ]),
-    send(S, columns, 2),
-    send(S, colour('#000000')),
-    send(S, gap, size(5, 5)),
-    send(Dialog, default_button, consultar),
-    send(Dialog, open_centered).
-
-
+menu_principal :-
+    nl, write("╭─────────────────────────────────────────────────╮"),
+    nl, write("│    Bem-vindo ao Recomendador de Filmes!         │"),
+    nl, write("│    1 - Consultar filmes recomendados            │"),
+    nl, write("│    2 - Sair                                     │"),
+    nl, write("╰─────────────────────────────────────────────────╯"),
+    nl, nl, read(OpcaoMenu),
+    (
+        OpcaoMenu =:= 1
+        -> consultar_filmes_recomendados
+        ; OpcaoMenu =:= 2
+        -> sair
+        ; opcaoInvalida
+    ).
 
 % Coletar preferências do usuário
 consultar_filmes_recomendados :-
-    write("Insira suas preferências!"),
+    nl, write("╭─────────────────────────────────────────────────╮"),
+    nl, write("│            Insira suas preferências!            │"),
     nl,
 
     % Preferência de gênero
@@ -95,14 +74,22 @@ consultar_filmes_recomendados :-
     (
         OpcaoEstudio == 'sim'
         -> estudio(Estudio)
-        ; Estudio = _
+        ; Estudio = _,
+        write("╰─────────────────────────────────────────────────╯")
+
     ),
 
 % Exibir lista de filmes recomendados e perguntar ao usuário se deseja visualizar informações sobre um filme
-nl, write("Filmes para você: "),
+nl, write("╭─────────────────────────────────────────────────╮"),
+nl, write("|                Filmes para você:                |"),
 nl, findall(X, (filme(X, Genero, Ano, Nota, Diretor, Estudio), Ano >= AnoMinimo, Ano =< AnoMaximo, Nota >= AvaliacaoMinima), Lista),
 listar_filmes_numerados(Lista, 1), % Adiciona números à lista de filmes
-nl, write("Deseja visualizar informações de um filme recomendado? (Digite o número do filme ou 'nao')"),
+nl, write("╰─────────────────────────────────────────────────╯"),
+
+nl, write("────────────────────────────────────────────────────────────────────────────────────────────────"),
+nl, write("  Deseja visualizar informações de um filme recomendado? (Digite o número do filme ou 'nao')"),
+nl, write("────────────────────────────────────────────────────────────────────────────────────────────────"),
+
 read(OpcaoVisualizar),
 (
     OpcaoVisualizar == 'nao'
@@ -113,7 +100,7 @@ read(OpcaoVisualizar),
 
 % Loop para forçar o usuário a digitar 'sim' ou 'nao'
 perguntar_preferencia(Opcao, Tema) :-
-    write("Você possui preferência por "),
+    nl, write("  Você possui preferência por "),
     write(Tema),
     write("? (sim/nao)"),
     nl, read(OpcaoTemp),
@@ -128,45 +115,65 @@ perguntar_preferencia(Opcao, Tema) :-
 
 % Mostrar todos os gêneros possíveis e usuário digitar o gênero desejado
 genero(Genero) :-
-    write("Digite o gênero desejado: "),
-    nl, read(Genero).
+    nl, write("│            Digite o gênero desejado:            │"),
+    nl, read(Genero),
+    nl, write("╰─────────────────────────────────────────────────╯"),
+    nl, nl, nl,
+    nl, write("╭─────────────────────────────────────────────────╮").
+
+
 
 % Usuário digitar a avaliação minima desejada
 avaliacao(AvaliacaoMinima) :-
-    write("Digite a avaliação mínima desejada (0-100): "),
-    nl, read(AvaliacaoMinima).
+    write("│   Digite a avaliação mínima desejada (0-100):   │"),
+    nl, read(AvaliacaoMinima),
+    nl, write("╰─────────────────────────────────────────────────╯"),
+    nl, nl, nl,
+    nl, write("╭─────────────────────────────────────────────────╮").
 
 % Usuário digitar o ano minimo desejado
 anoMinimo(AnoMinimo) :-
-    write("Digite o ano mínimo desejado: "),
-    nl, read(AnoMinimo).
+    write("│           Digite o ano mínimo desejado:         │"),
+    nl, read(AnoMinimo),
+    nl, write("╰─────────────────────────────────────────────────╯"),
+    nl, nl, nl,
+    nl, write("╭─────────────────────────────────────────────────╮").
 
 % Usuário digitar o ano maximo desejado
 anoMaximo(AnoMaximo) :-
-    write("Digite o ano máximo desejado: "),
-    nl, read(AnoMaximo).
+    write("│            Digite o ano máximo desejado:        │"),
+    nl, read(AnoMaximo),
+    nl, write("╰─────────────────────────────────────────────────╯"),
+    nl, nl, nl,
+    nl, write("╭─────────────────────────────────────────────────╮").
 
 % Mostrar todos os diretores possíveis e usuário digitar o diretor desejado
 diretor(Diretor) :-
-    write("Digite o diretor desejado: "),
-    nl, read(Diretor).
+    write("│            Digite o diretor desejado:           │"),
+    nl, read(Diretor),
+    nl, write("╰─────────────────────────────────────────────────╯"),
+    nl, nl, nl,
+    nl, write("╭─────────────────────────────────────────────────╮").
 
 % Mostrar todos os estúdios possíveis e usuário digitar o estúdio desejado
 estudio(Estudio) :-
-    write("Digite o estúdio desejado: "),
-    nl, read(Estudio).
+    write("│             Digite o estúdio desejado:          │"),
+    nl, read(Estudio),
+    nl, write("╰─────────────────────────────────────────────────╯").
 
 sair :- 
-    nl, write("Obrigado por usar nosso recomendador!").
+    nl, nl, write("╭─────────────────────────────────────────────────╮"),
+    nl, write("│      Obrigado por usar nosso recomendador!      │"),
+    nl, write("╰─────────────────────────────────────────────────╯").
 
 opcaoInvalida :-
-    write("Você não digitou uma opção válida!"),
+        write("|       Você não digitou uma opção válida!        |"),
     nl, menu_principal.
 
 % Exibe a lista de filmes numerada
 listar_filmes_numerados([], _).
 listar_filmes_numerados([Filme|Resto], Num) :-
-    format('~w - ~w~n', [Num, Filme]),
+    format('|    ~w - ~w~n', [Num, Filme]),
     NovoNum is Num + 1,
     listar_filmes_numerados(Resto, NovoNum).
 
@@ -183,19 +190,25 @@ visualizar_informacoes_do_filme(ListaFilmes, OpcaoNum) :-
 
     exibir_informacoes_do_filme(NomeDoFilme) :-
         filme(NomeDoFilme, Genero, Ano, Nota, Diretor, Estudio),
-        write("Nome do Filme: "), write(NomeDoFilme), nl,
-        write("Gênero: "), write(Genero), nl,
-        write("Ano de Lançamento: "), write(Ano), nl,
-        write("Avaliação: "), write(Nota), nl,
-        write("Diretor: "), write(Diretor), nl,
-        write("Estúdio: "), write(Estudio), nl.
+        nl, write("╭─────────────────────────────────────────────────╮"),
+        nl, write("|  Nome do Filme: "), write(NomeDoFilme), nl,
+        write("|  Gênero: "), write(Genero), nl,
+        write("|  Ano de Lançamento: "), write(Ano), nl,
+        write("|  Avaliação: "), write(Nota), nl,
+        write("|  Diretor: "), write(Diretor), nl,
+        write("|  Estúdio: "), write(Estudio), nl,
+        write("╰─────────────────────────────────────────────────╯").
+
     
 % Predicado para continuar ou voltar ao menu principal
 continuar_ou_voltar :-
-    nl, write("O que você deseja fazer a seguir?"),
-    nl, write("1 - Continuar procurando filmes"),
-    nl, write("2 - Voltar ao menu principal"),
+    nl, write("╭─────────────────────────────────────────────────╮"),
+    nl, write("|        O que você deseja fazer a seguir?        |"),
+    nl, write("|         1 - Continuar procurando filmes         |"),
+    nl, write("|          2 - Voltar ao menu principal           |"),
     nl, nl, read(Opcao),
+    nl, write("╰─────────────────────────────────────────────────╯"),
+
     (
         Opcao =:= 1
         -> consultar_filmes_recomendados
