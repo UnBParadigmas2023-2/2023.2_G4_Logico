@@ -106,7 +106,7 @@ TEMPO: +/- 15min
 | Vinicius Assumpção  |  Criação do esqueleto base que foi utilizado para a implementação do projeto,e revisões posteriores  | Excelente |
 | João Pedro de Camargo Vaz  |  Criação do esqueleto base que foi utilizado para a implementação do projeto,e revisões posteriores | Excelente |
 | Gabriel Roger Amorim da Cruz | Criação do esqueleto base que foi utilizado para a implementação do projeto, colaboração na listagem de preferências disponíveis e revisões posteriores | Excelente | 
-| Josué Teixeira Santana | |  |
+| Josué Teixeira Santana | Criação da feature das informações detalhadas dos filmes listados | Excelente |
 | Carla Rocha Cangussú | Criação da Interface via terminal e tentativa de criar interface gráfica pelo módulo pce| Excelente |
 | Juliana Pereira Valle Gonçalves | Criação de script de extração de filmes para popular a base de dados | Excelente |
 | Daniel Primo de Melo  | Criação da interface via terminal. Tentativa de criação da interface gráfica | Excelente |
