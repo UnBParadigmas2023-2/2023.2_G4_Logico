@@ -1,5 +1,6 @@
 % consult para recuperar base de conhecimento presente no arquivo baseConhecimento
 :- consult('baseConhecimento.pl').
+:- consult('regrasAuxiliares.pl').
 
 % Exibição do menu
 menu_principal :-
@@ -104,33 +105,78 @@ perguntar_preferencia(Opcao, Tema) :-
 
 % Mostrar todos os gêneros possíveis e usuário digitar o gênero desejado
 genero(Genero) :-
+    write("Lista de gêneros:"), nl,
+    mostrar_generos, nl, % Listar todos os gêneros
     write("Digite o gênero desejado: "),
-    nl, read(Genero).
+    nl, read(GeneroLido), 
+    (
+        filme(_, GeneroLido, _, _, _, _)
+        -> Genero = GeneroLido
+        ; nl, write("Gênero inserido inválido. Escolha um dos gêneros da lista."), nl, nl,
+        genero(Genero)
+    ).
 
 % Usuário digitar a avaliação minima desejada
 avaliacao(AvaliacaoMinima) :-
-    write("Digite a avaliação mínima desejada (0-100): "),
-    nl, read(AvaliacaoMinima).
+    avaliacao_minima_maxima(Minima, Maxima),
+    format("Digite a avaliação mínima desejada (~w - ~w): ", [Minima, Maxima]),
+    nl,read(AvaliacaoMinimaLida), 
+    (
+        AvaliacaoMinimaLida >= Minima, AvaliacaoMinimaLida =< Maxima
+        -> AvaliacaoMinima = AvaliacaoMinimaLida
+        ; nl, format("Avaliação inserida inválida. A avaliação deve estar entre ~w e ~w.", [Minima, Maxima]), nl, nl,
+        avaliacao(AvaliacaoMinima)
+    ).
 
 % Usuário digitar o ano minimo desejado
 anoMinimo(AnoMinimo) :-
-    write("Digite o ano mínimo desejado: "),
-    nl, read(AnoMinimo).
+    ano_minimo_maximo(Minimo, Maximo),
+    format("Digite o ano mínimo desejado entre ~w e ~w:", [Minimo, Maximo]),
+    nl, read(AnoMinimoLido), 
+    (
+        AnoMinimoLido >= Minimo, AnoMinimoLido =< Maximo, integer(AnoMinimoLido)    
+        -> AnoMinimo = AnoMinimoLido
+        ; nl, format("Ano mínimo inserido inválido. O Ano mínimo deve estar entre ~w e ~w.", [Minimo, Maximo]), nl, nl,
+        anoMinimo(AnoMinimo)
+    ).
 
 % Usuário digitar o ano maximo desejado
 anoMaximo(AnoMaximo) :-
-    write("Digite o ano máximo desejado: "),
-    nl, read(AnoMaximo).
+    ano_minimo_maximo(Minimo, Maximo),
+    format("Digite o ano máximo desejado entre ~w e ~w:", [Minimo, Maximo]),
+    nl, read(AnoMaximoLido), 
+    (
+        AnoMaximoLido >= Minimo, AnoMaximoLido =< Maximo, integer(AnoMaximoLido)    
+        -> AnoMaximo = AnoMaximoLido
+        ; nl, format("Ano mínimo inserido inválido. O Ano mínimo deve estar entre ~w e ~w.", [Minimo, Maximo]), nl, nl,
+    anoMaximo(AnoMaximo)
+    ).
 
 % Mostrar todos os diretores possíveis e usuário digitar o diretor desejado
 diretor(Diretor) :-
+    write("Lista de diretores:"), nl,
+    mostrar_diretores, nl,
     write("Digite o diretor desejado: "),
-    nl, read(Diretor).
+    nl, read(DiretorLido), 
+    (
+        filme(_, _, _, _, DiretorLido, _)
+        -> Diretor = DiretorLido
+        ; write("Diretor inserido inválido. Escolha um dos diretores da lista."),
+        diretor(Diretor)
+    ).
 
 % Mostrar todos os estúdios possíveis e usuário digitar o estúdio desejado
 estudio(Estudio) :-
+    write("Lista de estudios:"), nl,
+    mostrar_estudios, nl,
     write("Digite o estúdio desejado: "),
-    nl, read(Estudio).
+    nl, read(EstudioLido), 
+    (
+        filme(_, _, _, _, _, EstudioLido)
+        -> Estudio = EstudioLido
+        ; write("Estúdio inserido inválido. Escolha um dos estúdios da lista."),
+        estudio(Estudio)
+    ).
 
 sair :- 
     nl, write("Obrigado por usar nosso recomendador!").
