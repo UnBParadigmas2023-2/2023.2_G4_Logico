@@ -108,7 +108,7 @@ TEMPO: +/- 15min
 | Gabriel Roger Amorim da Cruz | Criação do esqueleto base que foi utilizado para a implementação do projeto, colaboração na listagem de preferências disponíveis e revisões posteriores | Excelente | 
 | Josué Teixeira Santana | |  |
 | Carla Rocha Cangussú | |  |
-| Juliana Pereira Valle Gonçalves | |  |
+| Juliana Pereira Valle Gonçalves | Criação de script de extração de filmes para popular a base de dados | Excelente |
 | Daniel Primo de Melo  | |  |
 | Júlio César Martins frança | Implementação da parte de listagem das opções para o usuário e na validação dos dados de entrada | Excelente |
 
