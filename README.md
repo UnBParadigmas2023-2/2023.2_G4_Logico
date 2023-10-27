@@ -109,7 +109,7 @@ TEMPO: +/- 15min
 | Josué Teixeira Santana | |  |
 | Carla Rocha Cangussú | |  |
 | Juliana Pereira Valle Gonçalves | Criação de script de extração de filmes para popular a base de dados | Excelente |
-| Daniel Primo de Melo  | |  |
+| Daniel Primo de Melo  | Criação da interface via terminal. Tentativa de criação da interface gráfica | Excelente |
 | Júlio César Martins frança | Implementação da parte de listagem das opções para o usuário e na validação dos dados de entrada | Excelente |
 
 ## Outros 
