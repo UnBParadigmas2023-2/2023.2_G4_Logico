@@ -32,7 +32,7 @@ mostrar_estudios :-
 % Regra formatar atributos
 formatar_atributos([]).
 formatar_atributos([Atributo | OutrosAtributos]) :-
-    format("~w~n", [Atributo]),
+    format("║  ~w~n", [Atributo]),
     formatar_atributos(OutrosAtributos).
 
 ano_minimo_maximo(Minimo, Maximo) :-
