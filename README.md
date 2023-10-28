@@ -38,8 +38,11 @@ Este é um projeto de implementação de um sistema de recomendação de filmes 
 
 ## Screenshots
 
+![Imagem 1](./assets/Captura1.png)
 
+![Imagem 2](./assets/Captura2.png)
 
+![Imagem 3](./assets/Captura3.png)
 
 ## Instalação 
 **Linguagem**: Prolog<br>
