@@ -93,15 +93,7 @@ Após a execução destes comandos, você será capaz de visualizar a aplicaçã
 Obs: Para cada entrada no terminal, é necessário colocar . no final. Para digitar uma string, é necessário colocar entre aspas simples, além do . no final!
 
 ## Vídeo
-Adicione 1 ou mais vídeos com a execução do projeto.
-Procure: 
-(i) Introduzir o projeto;
-(ii) Mostrar passo a passo o código, explicando-o, e deixando claro o que é de terceiros, e o que é contribuição real da equipe;
-(iii) Apresentar particularidades do Paradigma, da Linguagem, e das Tecnologias, e
-(iV) Apresentar lições aprendidas, contribuições, pendências, e ideias para trabalhos futuros.
-
-TEMPO: +/- 15min
- [LINK PARA O VÍDEO DE APRESENTAÇÃO]()
+ [LINK PARA O VÍDEO DE APRESENTAÇÃO](https://youtu.be/MCJYWCsv1XE)
 ## Participações
 
 |Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) |
